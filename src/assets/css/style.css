@@ -1,3 +1,17 @@
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.555);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,6 +37,14 @@
 @font-face {
   font-family: Montserrat-Light;
   src: url(../fonts/Montserrat-Light.ttf);
+}
+@font-face {
+  font-family: helvetica-bold;
+  src: url(../fonts/HelveticaNeueLTStd-XBlkCn.otf);
+}
+@font-face {
+  font-family: NexaSlab-Trial;
+  src: url(../fonts/NexaSlab-Trial-Light.otf);
 }
 .container {
   width: 90%;
@@ -108,11 +130,11 @@ header nav .logo {
 }
 header nav .logo img {
   width: 100%;
-  max-width: 250px;
+  max-width: 130px;
 }
 @media (max-width: 768px) {
   header nav .logo img {
-    max-width: 170px;
+    max-width: 70px;
   }
 }
 header nav ul {
@@ -161,6 +183,11 @@ header nav ul li button {
   cursor: pointer;
   color: #fff;
   font-family: Montserrat-Regular;
+  transition: background 1s ease, 1s all;
+}
+header nav ul li button:hover {
+  background: linear-gradient(90deg, #fff, #374159);
+  color: #000;
 }
 header nav .toggle {
   display: none;
@@ -331,6 +358,18 @@ main.pg-1 .about .container .box .col-1 p, main.pg-1 .about .container .box .col
   main.pg-1 .about .container .box .col-1 p, main.pg-1 .about .container .box .col-2 p {
     font-size: 16px;
     line-height: normal;
+  }
+}
+main.pg-1 .about .container .box .col-1 {
+  display: flex;
+  align-items: end;
+}
+main.pg-1 .about .container .box .col-2 {
+  padding-bottom: 200px;
+}
+@media (max-width: 768px) {
+  main.pg-1 .about .container .box .col-2 {
+    padding: 0;
   }
 }
 main.pg-1 .value {
@@ -667,6 +706,13 @@ main.pg-1 .know-how img.map {
   right: -10%;
   transform: translateX(-50%);
   z-index: 1;
+}
+@media (min-width: 1441px) {
+  main.pg-1 .know-how img.map {
+    height: 90%;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
 }
 @media (max-width: 768px) {
   main.pg-1 .know-how img.map {
@@ -1100,6 +1146,11 @@ main.pg-1 .stalkeholders .container .col-3 button {
   font-family: Montserrat-Regular;
   -webkit-clip-path: polygon(100% 10px, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 0, calc(100% - 10px) 0);
           clip-path: polygon(100% 10px, 100% calc(100% - 5px), calc(100% - 10px) 100%, 0 100%, 0 0, calc(100% - 10px) 0);
+  transition: background 1s ease, 1s all;
+}
+main.pg-1 .stalkeholders .container .col-3 button:hover {
+  background: linear-gradient(90deg, #374159, #a2bcde);
+  color: #fff;
 }
 main.pg-1 .premiacoes {
   display: flex;
@@ -1263,6 +1314,17 @@ main.pg-1 .artigos {
   -webkit-clip-path: polygon(0% 70px, 70px 0, 55% 0, 56% 10px, 90% 10px, 95% 50px, 100% 50px, 100% calc(100% - 70px), calc(100% - 70px) 100%, 0 100%);
           clip-path: polygon(0% 70px, 70px 0, 55% 0, 56% 10px, 90% 10px, 95% 50px, 100% 50px, 100% calc(100% - 70px), calc(100% - 70px) 100%, 0 100%);
   position: relative;
+  z-index: 2;
+}
+main.pg-1 .artigos::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  border-radius: 20px;
+  background-color: #a4a4a4;
+  bottom: -1px;
+  z-index: 1;
 }
 @media (max-width: 768px) {
   main.pg-1 .artigos {
@@ -1329,15 +1391,17 @@ main.pg-1 .artigos .container .text h2 span {
 main.pg-1 .artigos .container .cards {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 @media (max-width: 768px) {
   main.pg-1 .artigos .container .cards {
-    flex-direction: column;
+    justify-content: center;
     gap: 30px;
   }
 }
 main.pg-1 .artigos .container .cards .card {
-  width: 30%;
+  max-width: 380px;
   background: linear-gradient(135deg, #282828, #010101);
   padding: 50px 30px;
   border-radius: 20px;
@@ -1392,6 +1456,18 @@ main.pg-1 .faq {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+main.pg-1 .faq::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  border-radius: 20px;
+  background-color: #a4a4a4;
+  top: 68px;
+  z-index: 1;
 }
 main.pg-1 .faq .container .text {
   width: 100%;
@@ -1449,6 +1525,18 @@ main.pg-1 .faq .container .box-faq details p {
 main.pg-1 .faq .container .box-faq details[open] {
   transition: 1s all;
 }
+main.pg-1 .faq .container .box-faq details[open] summary::before {
+  rotate: 0deg;
+  animation: rotate0 1s;
+}
+@keyframes rotate0 {
+  0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 main.pg-1 .faq .container .box-faq details[open] p {
   animation: slideDown 1s ease-in-out;
 }
@@ -1489,9 +1577,56 @@ main.pg-1 .faq .container .box-faq summary {
   list-style-type: none;
   background: linear-gradient(90deg, #282828 0%, #010101 60%);
   text-align: center;
-  padding: 20px 10px;
+  padding: 20px 50px 20px 10px;
   font-family: Cinzel-bold;
   font-size: calc(0.7rem + 0.7vw);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 767px) {
+  main.pg-1 .faq .container .box-faq summary {
+    justify-content: start;
+  }
+}
+main.pg-1 .faq .container .box-faq summary::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  right: 20px;
+  background: #a2bcde;
+  border-radius: 20px;
+}
+@media (max-width: 767px) {
+  main.pg-1 .faq .container .box-faq summary::after {
+    width: 20px;
+  }
+}
+main.pg-1 .faq .container .box-faq summary::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  right: 20px;
+  background: #a2bcde;
+  border-radius: 20px;
+  rotate: 90deg;
+  animation: rotate90 1s;
+}
+@media (max-width: 767px) {
+  main.pg-1 .faq .container .box-faq summary::before {
+    width: 20px;
+  }
+}
+@keyframes rotate90 {
+  0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 @media (max-width: 768px) {
   main.pg-1 .faq .container .box-faq summary {
@@ -1824,7 +1959,7 @@ main.pg-2 .timeline .bg-cards .container .cards .card {
 }
 main.pg-2 .timeline .bg-cards .container .cards .card .conteudo {
   width: 100%;
-  background: #a2bcde;
+  background: linear-gradient(230deg, #a2bcde, #fff);
   height: 100%;
   display: flex;
   align-items: center;
@@ -2009,12 +2144,12 @@ main.pg-2 .value .icon-bottom i {
   color: #fff;
   font-size: 20px;
 }
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   main.pg-2 .value {
     padding: 100px 0 0 0;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   main.pg-2 .value .container {
     width: 100%;
   }
@@ -2029,7 +2164,7 @@ main.pg-2 .value .container .text h1 {
   text-align: center;
   margin-bottom: 50px;
 }
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   main.pg-2 .value .container .text h1 {
     font-size: 24px;
   }
@@ -2043,7 +2178,7 @@ main.pg-2 .value .container .text h2 {
   text-align: center;
   color: #000;
 }
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   main.pg-2 .value .container .text h2 {
     font-size: 16px;
   }
@@ -2063,7 +2198,7 @@ main.pg-2 .value .container .box-cards {
   gap: 30px;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
 }
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   main.pg-2 .value .container .box-cards {
     padding: 0 15px 40px 15px;
     border: 0;
@@ -2079,7 +2214,7 @@ main.pg-2 .value .container .box-cards .card {
   display: flex;
   gap: 20px;
 }
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   main.pg-2 .value .container .box-cards .card {
     gap: 10px;
     width: 50%;
@@ -2401,6 +2536,11 @@ main.pg-3 .titulo .container .marcas .marca .header-marca .group button {
   outline: 0;
   -webkit-clip-path: polygon(0 10px, 10px 0, calc(100% - 30px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 20px 100%, 0 calc(100% - 15px));
           clip-path: polygon(0 10px, 10px 0, calc(100% - 30px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 20px 100%, 0 calc(100% - 15px));
+  transition: background 1s ease, 1s all;
+}
+main.pg-3 .titulo .container .marcas .marca .header-marca .group button:hover {
+  background: linear-gradient(90deg, #374159, #a2bcde);
+  color: #fff;
 }
 @media (max-width: 768px) {
   main.pg-3 .titulo .container .marcas .marca .header-marca .group button {
@@ -2542,16 +2682,11 @@ main.pg-4 .artigos {
 main.pg-4 .artigos .container .cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 5%;
-}
-@media (max-width: 768px) {
-  main.pg-4 .artigos .container .cards {
-    flex-direction: column;
-    gap: 30px;
-  }
+  gap: 30px;
+  justify-content: center;
 }
 main.pg-4 .artigos .container .cards .card {
-  width: 30%;
+  width: 350px;
   background: linear-gradient(135deg, #282828, #010101);
   padding: 50px 30px;
   border-radius: 20px;
@@ -2571,7 +2706,6 @@ main.pg-4 .artigos .container .cards .card::after {
 }
 @media (max-width: 768px) {
   main.pg-4 .artigos .container .cards .card {
-    width: 100%;
     padding: 20px 10px 40px 10px;
   }
 }
@@ -2659,17 +2793,17 @@ main.pg-5 .artigos .container {
 main.pg-5 .artigos .container .cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 5%;
+  justify-content: space-between;
+  gap: 10px;
   width: 100%;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   main.pg-5 .artigos .container .cards {
-    flex-direction: column;
-    gap: 30px;
+    justify-content: center;
   }
 }
 main.pg-5 .artigos .container .cards .card {
-  width: 30%;
+  width: 350px;
   background: linear-gradient(135deg, #282828, #010101);
   padding: 50px 30px;
   border-radius: 20px;
@@ -2689,7 +2823,6 @@ main.pg-5 .artigos .container .cards .card::after {
 }
 @media (max-width: 768px) {
   main.pg-5 .artigos .container .cards .card {
-    width: 100%;
     padding: 20px 10px 40px 10px;
   }
 }
@@ -2851,7 +2984,7 @@ main.pg-6 main .container .box .form form input::-moz-placeholder, main.pg-6 mai
   outline: 0;
   font-family: Montserrat-Regular;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   overflow: hidden;
   resize: none;
   height: -moz-fit-content;
@@ -2867,7 +3000,7 @@ main.pg-6 main .container .box .form form input, main.pg-6 main .container .box 
   outline: 0;
   font-family: Montserrat-Regular;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   overflow: hidden;
   resize: none;
   height: -moz-fit-content;
@@ -2888,10 +3021,15 @@ main.pg-6 main .container .box .form form button, main.pg-6 section .container .
   border-radius: 10px;
   border: 0;
   outline: 0;
-  color: #000;
+  color: #fff;
   font-family: Montserrat-Regular;
   font-size: 20px;
   cursor: pointer;
+  transition: background 1s ease, 1s all;
+}
+main.pg-6 main .container .box .form form button:hover, main.pg-6 section .container .box .form form button:hover {
+  background: linear-gradient(90deg, #fff, #374159);
+  color: #000;
 }
 main.pg-6 main .container .box .form form button:disabled, main.pg-6 section .container .box .form form button:disabled {
   opacity: 0.5;
@@ -2953,7 +3091,7 @@ footer .container .footer-column h3 {
   font-family: Montserrat-Medium;
   font-size: calc(0.7rem + 0.7vw);
   font-weight: 100;
-  color: #fff;
+  color: #a2bcde;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
@@ -2978,7 +3116,7 @@ footer .footer-bottom {
   color: #fff;
   line-height: 20px;
   font-family: Montserrat-Medium;
-  padding-top: 50px;
+  padding: 50px 10px 0 10px;
 }
 footer .footer-bottom ul {
   display: flex;
