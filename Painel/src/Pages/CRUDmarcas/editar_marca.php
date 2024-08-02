@@ -97,6 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Marca</title>
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/42.0.2/ckeditor5.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <script type="module">
         import { ClassicEditor, Essentials, Paragraph, Bold, Italic, Font } from 'https://cdn.ckeditor.com/ckeditor5/42.0.2/ckeditor5.js';
 
@@ -119,38 +120,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </script>
 </head>
 <body>
-    <?php include("../menu.php"); ?>
+    <div class="container-full" id="container-full">
+        <?php include("../menu.php"); ?>
+    
+        <main id="conteudo">
+            <h1>Editar Marca</h1>
+            <form action="editar_marca.php?id=<?php echo htmlspecialchars($id); ?>" method="POST" enctype="multipart/form-data">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($marca['nome']); ?>" required>
+                <label for="link_insta">Link Instagram:</label>
+                <input type="text" id="link_insta" name="link_insta" value="<?php echo htmlspecialchars($marca['link_insta']); ?>">
+                <label for="link_face">Link Facebook:</label>
+                <input type="text" id="link_face" name="link_face" value="<?php echo htmlspecialchars($marca['link_face']); ?>">
+                <label for="link_landing_page">Link Landing Page:</label>
+                <input type="text" id="link_landing_page" name="link_landing_page" value="<?php echo htmlspecialchars($marca['link_landing_page']); ?>">
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" name="descricao" required><?php echo htmlspecialchars($marca['descricao']); ?></textarea>
+                <label for="logo">Logo (deixe em branco para manter a atual):</label>
+                <input type="file" id="logo" name="logo">
+                <p style="margin-bottom: 30px;">Logo Atual: <?php echo htmlspecialchars($marca['logo']); ?></p>
+                <button type="submit">Atualizar Marca</button>
+            </form>
+        </main>
+    </div>
 
-    <h1>Editar Marca</h1>
-    <form action="editar_marca.php?id=<?php echo htmlspecialchars($id); ?>" method="POST" enctype="multipart/form-data">
-        <div>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($marca['nome']); ?>" required>
-        </div>
-        <div>
-            <label for="link_insta">Link Instagram:</label>
-            <input type="text" id="link_insta" name="link_insta" value="<?php echo htmlspecialchars($marca['link_insta']); ?>">
-        </div>
-        <div>
-            <label for="link_face">Link Facebook:</label>
-            <input type="text" id="link_face" name="link_face" value="<?php echo htmlspecialchars($marca['link_face']); ?>">
-        </div>
-        <div>
-            <label for="link_landing_page">Link Landing Page:</label>
-            <input type="text" id="link_landing_page" name="link_landing_page" value="<?php echo htmlspecialchars($marca['link_landing_page']); ?>">
-        </div>
-        <div>
-            <label for="descricao">Descrição:</label>
-            <textarea id="descricao" name="descricao" required><?php echo htmlspecialchars($marca['descricao']); ?></textarea>
-        </div>
-        <div>
-            <label for="logo">Logo (deixe em branco para manter a atual):</label>
-            <input type="file" id="logo" name="logo">
-        </div>
-        <div>
-            <p>Logo Atual: <?php echo htmlspecialchars($marca['logo']); ?></p>
-        </div>
-        <button type="submit">Atualizar Marca</button>
-    </form>
+    <script src="../../assets/js/menu.js"></script>
+
 </body>
 </html>

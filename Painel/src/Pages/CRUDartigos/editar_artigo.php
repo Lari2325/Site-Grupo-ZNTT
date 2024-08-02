@@ -93,60 +93,71 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Artigo</title>
-    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/42.0.2/ckeditor5.css">
-    <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Paragraph,
-            Bold,
-            Italic,
-            Font
-        } from 'https://cdn.ckeditor.com/ckeditor5/42.0.2/ckeditor5.js';
-
-        document.addEventListener('DOMContentLoaded', function() {
-            ClassicEditor
-                .create(document.querySelector('#descricao'), {
-                    plugins: [ Essentials, Paragraph, Bold, Italic, Font ],
-                    toolbar: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                })
-                .then(editor => {
-                    window.editor = editor;
-                })
-                .catch(error => {
-                    console.error('Erro ao inicializar o CKEditor:', error);
-                });
-        });
-    </script>
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/35.3.0/classic/theme-lark.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
-    <?php include("../menu.php"); ?>
+    <div class="container-full" id="container-full">
+        <?php include("../menu.php"); ?>
+    
+        <main id="conteudo">
+            <h1>Editar Artigo</h1>
+            <form action="editar_artigo.php?id_artigo=<?php echo htmlspecialchars($id_artigo); ?>" method="POST" enctype="multipart/form-data">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" value="<?php echo htmlspecialchars($artigo['titulo']); ?>" required>
+                <label for="texto_chamada">Texto de Chamada:</label>
+                <textarea id="texto_chamada" name="texto_chamada" required><?php echo htmlspecialchars($artigo['texto_chamada']); ?></textarea>
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" name="descricao" required><?php echo htmlspecialchars($artigo['descricao']); ?></textarea>
+                <label for="imagem">Imagem (deixe em branco para manter a atual):</label>
+                <input type="file" id="imagem" name="imagem">
+                <p style="margin-bottom: 30px;">Imagem Atual: <?php echo htmlspecialchars($artigo['imagem']); ?></p>                
+                <button type="submit">Atualizar Artigo</button>
+            </form>
+        </main>
+    </div>
 
-    <h1>Editar Artigo</h1>
-    <form action="editar_artigo.php?id_artigo=<?php echo htmlspecialchars($id_artigo); ?>" method="POST" enctype="multipart/form-data">
-        <div>
-            <label for="titulo">Título:</label>
-            <input type="text" id="titulo" name="titulo" value="<?php echo htmlspecialchars($artigo['titulo']); ?>" required>
-        </div>
-        <div>
-            <label for="texto_chamada">Texto de Chamada:</label>
-            <textarea id="texto_chamada" name="texto_chamada" required><?php echo htmlspecialchars($artigo['texto_chamada']); ?></textarea>
-        </div>
-        <div>
-            <label for="descricao">Descrição:</label>
-            <textarea id="descricao" name="descricao" required><?php echo htmlspecialchars($artigo['descricao']); ?></textarea>
-        </div>
-        <div>
-            <label for="imagem">Imagem (deixe em branco para manter a atual):</label>
-            <input type="file" id="imagem" name="imagem">
-        </div>
-        <div>
-            <p>Imagem Atual: <?php echo htmlspecialchars($artigo['imagem']); ?></p>
-        </div>
-        <button type="submit">Atualizar Artigo</button>
-    </form>
+    <script src="../../assets/js/menu.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#descricao'), {
+                toolbar: {
+                    items: [
+                        'heading', '|',
+                        'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', '|',
+                        'link', '|',
+                        'bulletedList', 'numberedList', 'todoList', '|',
+                        'alignment', '|',
+                        'outdent', 'indent', '|',
+                        'blockQuote', '|',
+                        'insertTable', 'tableColumn', 'tableRow', 'mergeTableCells', '|',
+                        'imageUpload', 'mediaEmbed', 'removeFormat', '|',
+                        'undo', 'redo'
+                    ]
+                },
+                language: 'pt',
+                image: {
+                    toolbar: [
+                        'imageTextAlternative', 'imageStyle:full', 'imageStyle:side'
+                    ]
+                },
+                table: {
+                    contentToolbar: [
+                        'tableColumn', 'tableRow', 'mergeTableCells'
+                    ]
+                }
+            })
+            .then(editor => {
+                window.editor = editor;
+                const form = document.querySelector('form');
+                form.addEventListener('submit', () => {
+                    document.querySelector('#descricao').value = editor.getData();
+                });
+            })
+            .catch(error => {
+                console.error('Erro ao inicializar o CKEditor:', error);
+            });
+    </script>
 </body>
 </html>

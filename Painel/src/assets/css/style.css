@@ -1,0 +1,263 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.usuario-incorreto {
+  width: 100%;
+  background: rgba(141, 0, 0, 0.144);
+  padding: 20px 20px;
+  text-align: center;
+  position: fixed;
+  color: rgb(70, 0, 0);
+  font-weight: 600;
+  text-transform: uppercase;
+  transform: translateY(-100px);
+  animation: upUsuarioErro 10s;
+}
+
+@keyframes upUsuarioErro {
+  0% {
+    transform: translateY(-100px);
+  }
+  20% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+.login-container {
+  background: linear-gradient(90deg, #d4d4d4, #e1e1e1);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-container .login {
+  text-align: center;
+  background: linear-gradient(90deg, #d4d4d4, #e1e1e1);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 90%;
+  max-width: 400px;
+  padding: 50px 20px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+.login-container .login h1 {
+  color: #374159;
+  font-size: calc(1rem + 1vw);
+}
+.login-container .login form {
+  display: flex;
+  flex-direction: column;
+}
+.login-container .login form label {
+  color: #374159;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.login-container .login form input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  outline: none;
+  background: #fff;
+  color: #000;
+  text-align: center;
+}
+.login-container .login form button {
+  width: 100%;
+  padding: 10px 20px;
+  background: #374159;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container-full {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  flex-wrap: wrap;
+  transition: 1s all;
+  background: linear-gradient(140deg, #fff, #d4d4d4, #e4e4e4, #e1e1e1);
+  overflow: hidden;
+}
+.container-full h1 {
+  margin-bottom: 30px;
+}
+.container-full header {
+  width: 20%;
+  background-color: #d4d4d4;
+  transform: translateX(-100%);
+  position: fixed;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  min-width: 300px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s all;
+  z-index: 1000;
+}
+.container-full header button {
+  color: #fff;
+  background-color: #374159;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 30px;
+  right: -40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transition: 0.3s all;
+}
+.container-full header button::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 1px;
+  background: #a2bcde;
+}
+.container-full header button::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 15px;
+  background: transparent;
+  border-top: 1px solid #a2bcde;
+  border-bottom: 1px solid #a2bcde;
+}
+.container-full header nav {
+  position: relative;
+  width: 90%;
+}
+.container-full header nav ul {
+  list-style: none;
+}
+.container-full header nav ul li {
+  background: #e4e4e4;
+  margin-bottom: 20px;
+  padding: 7px 10px;
+}
+.container-full header nav ul li a {
+  width: 100%;
+  color: #374159;
+  font-weight: 600;
+}
+.container-full main {
+  padding: 50px 0;
+  max-width: 1000px;
+  width: 90%;
+  transition: 1s all;
+}
+@media (max-width: 768px) {
+  .container-full main {
+    padding: 100px 0;
+  }
+}
+.container-full main form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.container-full main form label {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.container-full main form input, .container-full main form button, .container-full main form textarea, .container-full main form label, .container-full main form .ck-editor {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.container-full main form input, .container-full main form textarea {
+  padding: 7px 10px;
+  border: 1px solid #a2bcde;
+  outline: 0;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.container-full main form .ck-blurred, .container-full main form .ck-focused, .container-full main form textarea {
+  height: 200px !important;
+}
+.container-full main form button {
+  padding: 10px 20px;
+  background: #374159;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.container-full main .btn-adicionar {
+  background: #374159;
+  color: #fff;
+  border: none;
+  padding: 7px 10px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.container-full main .container-tabela {
+  width: 100%;
+  overflow: auto;
+  margin-top: 50px;
+}
+.container-full main .container-tabela table {
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 100%;
+}
+.container-full main .container-tabela table thead tr {
+  background-color: #374159;
+  color: #fff;
+}
+.container-full main .container-tabela table thead tr th {
+  padding: 5px 10px;
+}
+.container-full main .container-tabela table tbody tr {
+  background-color: #e4e4e4;
+}
+.container-full main .container-tabela table tbody tr:nth-child(odd) {
+  background-color: #d4d4d4;
+}
+.container-full main .container-tabela table tbody tr td {
+  padding: 5px 10px;
+  text-align: center;
+}
+.container-full main .container-tabela table tbody tr td .btn-editar, .container-full main .container-tabela table tbody tr td .btn-excluir {
+  background: #374159;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.container-full main .container-tabela table tbody tr td .btn-excluir {
+  background: #a2bcde;
+  color: #000;
+}/*# sourceMappingURL=style.css.map */

@@ -25,6 +25,7 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
             exit();
         } else {
             echo "Usuário ou senha incorretos.";
+            header('Location: index.php?usuario=incorreto');
         }
     } catch (PDOException $e) {
         echo "Erro: " . $e->getMessage();

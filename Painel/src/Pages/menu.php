@@ -1,4 +1,4 @@
-<header>
+<header id="menu">
     <nav>
         <ul>
             <li><a href="../Inicio/index.php">Tela inicial</a></li>
@@ -9,4 +9,5 @@
             <li><a href="../logout.php">Sair</a></li>
         </ul>
     </nav>
+    <button onclick="sidebar()" id="butonNavbar"></button>
 </header>

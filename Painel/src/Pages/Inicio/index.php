@@ -13,14 +13,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página inicial</title>
-    <link rel="stylesheet" href="./../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
-    <?php 
-        include("../menu.php");
-    ?>
-    <main>
-        <h1>Seja bem vindo</h1>
-    </main>
+    <div class="container-full" id="container-full">
+        <?php 
+            include("../menu.php");
+        ?>
+        <main id="conteudo">
+            <h1>Seja bem vindo</h1>
+        </main>
+    </div>
+
+    <script src="../../assets/js/menu.js"></script>
 </body>
 </html>
