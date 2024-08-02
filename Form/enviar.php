@@ -25,17 +25,17 @@ Mensagem:</b> $mensagem";
 try {
     //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
     $mail->isSMTP();
-    $mail->Host = 'sandbox.smtp.mailtrap.io';
+    $mail->Host = '';
     $mail->SMTPAuth = true;
-    $mail->Port = 2525;
-    $mail->Username = '92f784d47af185';
-    $mail->Password = '67cab1d3a29580';
+    $mail->Port = ;
+    $mail->Username = '';
+    $mail->Password = '';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Habilita TLS
 
     // Configurações do e-mail
     $mail->CharSet = 'UTF-8';
-    $mail->setFrom('larissazntt@gmail.com', 'Grupo ZNTT');
-    $mail->addAddress('larissazntt@gmail.com', 'Grupo ZNTT'); 
+    $mail->setFrom('larissa@gmail.com', 'Grupo');
+    $mail->addAddress('larissa@gmail.com', 'Grupo'); 
 
     $mail->isHTML(true);
     $mail->Subject = 'Grupo ZNTT - Website';
