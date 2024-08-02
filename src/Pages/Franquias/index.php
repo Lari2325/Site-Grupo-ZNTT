@@ -7,7 +7,7 @@ include('../db.php');
 $items_per_page = 6;
 
 $pages = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-$pages = max($pages, 1); // Garantir que a página não seja menor que 1
+$pages = max($pages, 1); 
 
 $offset = ($pages - 1) * $items_per_page;
 
@@ -19,7 +19,6 @@ try {
 
     $total_pages = ceil($total_items / $items_per_page);
 
-    // Corrigir a página se ela for maior que o número total de páginas
     $pages = min($pages, $total_pages);
 
     $query = "SELECT id, nome, logo, link_insta, link_landing_page, link_face, descricao FROM tb_franquias LIMIT :limit OFFSET :offset";
@@ -42,6 +41,7 @@ try {
     <title>Grupo ZNTT - Sobre</title>
     <link rel="stylesheet" href="./src/assets/css/style.css">
     <link rel="stylesheet" href="./src/awesome/css/all.min.css">
+    <link rel="shortcut icon" href="./src/assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <?php

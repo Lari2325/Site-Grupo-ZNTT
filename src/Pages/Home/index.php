@@ -10,6 +10,7 @@
     <title>Grupo ZNTT - know-how em franquias</title>
     <link rel="stylesheet" href="./src/assets/css/style.css">
     <link rel="stylesheet" href="./src/awesome/css/all.min.css">
+    <link rel="shortcut icon" href="./src/assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <?php include('./../menu.php'); ?>
@@ -42,7 +43,7 @@
                 <div class="box-cards">
                     <div class="card">
                         <div class="icon">
-                            <i class="fa-light fa-chart-candlestick"></i>
+                            <i class="fa-light fa-chart-mixed"></i>
                         </div>
                         <div class="desc">
                             <h4>
@@ -55,7 +56,7 @@
                     </div>
                     <div class="card">
                         <div class="icon">
-                             <i class="fa-light fa-chart-candlestick"></i>
+                             <i class="fa-light fa-chart-mixed"></i>
                         </div>
                         <div class="desc">
                             <h4>
@@ -68,7 +69,7 @@
                     </div>
                     <div class="card">
                         <div class="icon">
-                             <i class="fa-light fa-chart-candlestick"></i>
+                             <i class="fa-light fa-chart-mixed"></i>
                         </div>
                         <div class="desc">
                             <h4>
@@ -81,7 +82,7 @@
                     </div>
                     <div class="card">
                         <div class="icon">
-                             <i class="fa-light fa-chart-candlestick"></i>
+                             <i class="fa-light fa-chart-mixed"></i>
                         </div>
                         <div class="desc">
                             <h4>
@@ -262,7 +263,7 @@
                 <div class="col-3">
                     <h1>O GRUPO ZNTT É UMA CONEXÃO <br> ENTRE VOCÊ E O SUCESSO.</h1>
                     <p>Conheça nossas operações, avalie seu perfil e escolha com qual área de negócio você mais se <br> identifica, e torne-se um franqueado ou franqueador de sucesso tendo seu próprio negócio.</p>
-                    <button>Saiba Mais</button>
+                    <button onclick="location.href='contato'">Saiba Mais</button>
                 </div>
             </div>
         </section>
@@ -393,71 +394,9 @@
     </main>
     <?php include('./../footer.php'); ?>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const detailsElements = document.querySelectorAll("#faq details");
-
-            detailsElements.forEach((details) => {
-                details.addEventListener("toggle", () => {
-                    if (details.open) {
-                        detailsElements.forEach((el) => {
-                            if (el !== details && el.open) {
-                                el.removeAttribute("open");
-                            }
-                        });
-                    }
-                });
-            });
-        });
-    </script>
-    <script>
-       document.addEventListener('DOMContentLoaded', (event) => {
-            const modal = document.getElementById("myModal");
-            const modalImg = document.getElementById("modalImg");
-            const images = document.getElementsByClassName("carousel-img");
-            const closeButton = document.querySelector(".close");
-            const prevButton = document.querySelector(".prev");
-            const nextButton = document.querySelector(".next");
-
-            let currentIndex = 0;
-
-            function openModal(index) {
-                modal.style.display = "flex";
-                modalImg.src = images[index].src;
-                currentIndex = index;
-            }
-
-            function closeModal() {
-                modal.style.display = "none";
-            }
-
-            function showPrev() {
-                currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
-                modalImg.src = images[currentIndex].src;
-            }
-
-            function showNext() {
-                currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
-                modalImg.src = images[currentIndex].src;
-            }
-
-            Array.from(images).forEach((image, index) => {
-                image.addEventListener('click', () => {
-                    openModal(index);
-                });
-            });
-
-            closeButton.addEventListener('click', closeModal);
-            prevButton.addEventListener('click', showPrev);
-            nextButton.addEventListener('click', showNext);
-
-            window.addEventListener('click', (event) => {
-                if (event.target === modal) {
-                    closeModal();
-                }
-            });
-        });
-    </script>
+    <script src="./src/assets/js/faq.js"></script>
+    <script src="./src/assets/js/modal.js"></script>
+    <script src="./src/assets/js/comentarios.js"></script>
     <script>
         const comentarios = <?php echo json_encode($comentarios); ?>;
         let startIndex = 0;
@@ -499,37 +438,8 @@
             }
         }
 
-        // Render the initial carousel
         renderCarousel(startIndex);
-
     </script>
-    <script>
-        document.querySelectorAll('input[name="carousel-segmento"]').forEach((input) => {
-            input.addEventListener('change', function() {
-                const value = this.value;
-                let translateX;
-                if (window.innerWidth <= 768) {
-                    translateX = value * -95;
-                } else {
-                    translateX = value * -25;
-                }
-                document.getElementById('carousel-segmentos').style.transform = `translateX(${translateX}vw)`;
-            });
-        });
-
-        window.addEventListener('resize', () => {
-            const selectedInput = document.querySelector('input[name="carousel-segmento"]:checked');
-            if (selectedInput) {
-                const value = selectedInput.value;
-                let translateX;
-                if (window.innerWidth <= 768) {
-                    translateX = value * -95;
-                } else {
-                    translateX = value * -25;
-                }
-                document.getElementById('carousel-segmentos').style.transform = `translateX(${translateX}vw)`;
-            }
-        });
-    </script>
+    <script src="./src/assets/js/carousel-segmentos.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <title>Grupo ZNTT - Contato</title>
     <link rel="stylesheet" href="./src/assets/css/style.css">
     <link rel="stylesheet" href="./src/awesome/css/all.min.css">
+    <link rel="shortcut icon" href="./src/assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <?php

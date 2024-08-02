@@ -6,6 +6,7 @@
     <title>Grupo ZNTT - Sobre</title>
     <link rel="stylesheet" href="./src/assets/css/style.css">
     <link rel="stylesheet" href="./src/awesome/css/all.min.css">
+    <link rel="shortcut icon" href="./src/assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <?php
@@ -28,7 +29,7 @@
             <div class="container">
                 <div class="buscar-box">
                     <form action="" method="GET">
-                        <input type="text" name="search" placeholder="Buscar artigos...">
+                        <input type="text" name="search" placeholder="Buscar mídia...">
                         <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>

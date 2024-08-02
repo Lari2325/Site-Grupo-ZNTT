@@ -6,6 +6,7 @@
     <title>Grupo ZNTT - Sobre</title>
     <link rel="stylesheet" href="./src/assets/css/style.css">
     <link rel="stylesheet" href="./src/awesome/css/all.min.css">
+    <link rel="shortcut icon" href="./src/assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <?php
@@ -180,7 +181,7 @@
                 <div class="box-cards">
                     <div class="card">
                         <div class="icon">
-                            <i class="fa-light fa-chart-candlestick"></i>
+                            <i class="fa-light fa-chart-mixed"></i>
                         </div>
                         <div class="desc">
                             <h4>
@@ -193,7 +194,7 @@
                     </div>
                     <div class="card">
                         <div class="icon">
-                             <i class="fa-light fa-chart-candlestick"></i>
+                             <i class="fa-light fa-chart-mixed"></i>
                         </div>
                         <div class="desc">
                             <h4>
@@ -206,7 +207,7 @@
                     </div>
                     <div class="card">
                         <div class="icon">
-                             <i class="fa-light fa-chart-candlestick"></i>
+                             <i class="fa-light fa-chart-mixed"></i>
                         </div>
                         <div class="desc">
                             <h4>
@@ -219,7 +220,7 @@
                     </div>
                     <div class="card">
                         <div class="icon">
-                             <i class="fa-light fa-chart-candlestick"></i>
+                             <i class="fa-light fa-chart-mixed"></i>
                         </div>
                         <div class="desc">
                             <h4>
